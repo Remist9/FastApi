@@ -11,7 +11,18 @@ class UserCreate(BaseModel):
 class UserRead(BaseModel):
     id: int
     login: str
+    firstname: Optional[str]
+    surname: Optional[str]
+    location: Optional[str]
+    registration_time: datetime
+    last_auth_time: datetime
 
     model_config = {
         "from_attributes": True
     }
+
+
+class UserUpdate(BaseModel):
+    firstname: Optional[str] = None
+    surname: Optional[str] = None
+    location: Optional[str] = None
